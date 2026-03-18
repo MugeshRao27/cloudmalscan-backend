@@ -7,7 +7,7 @@ app = FastAPI(title="CloudMalScan API", version="1.0.0")
 # Allow React frontend to talk to backend
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000","http://localhost:3001"],
+    allow_origins=["http://localhost:3000","http://localhost:3001","https://cloudmalscan.web.app","https://cloudmalscan.firebaseapp.com"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
