@@ -1,0 +1,7 @@
+venv/
+__pycache__/
+*.pyc
+serviceAccountKey.json
+.env
+datasets/
+reports/
