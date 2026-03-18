@@ -206,9 +206,12 @@ async def scan_file(file: UploadFile = File(...)):
 
     try:
         if not firebase_admin._apps:
-            cred = credentials.Certificate(
-                "/mnt/f/Cloudmalscan/cloudmalscan/backend/serviceAccountKey.json"
-            )
+            import json
+            gc = os.getenv("GOOGLE_CREDENTIALS")
+            if gc:
+                cred = credentials.Certificate(json.loads(gc))
+            else:
+                cred = credentials.Certificate("serviceAccountKey.json")
             firebase_admin.initialize_app(cred)
         db = firestore.client()
         db.collection("scan_logs").add(result)
